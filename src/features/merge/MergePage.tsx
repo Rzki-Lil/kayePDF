@@ -113,19 +113,19 @@ export function MergePage() {
     <div className="relative flex flex-col h-full overflow-hidden">
       <SuccessOverlay isVisible={showSuccess} onComplete={handleComplete} />
       
-      <header className="sidebar px-12 py-8 flex justify-between items-center border-b border-slate-100 bg-white/50 dark:bg-transparent backdrop-blur-xl sticky top-0 z-20">
+      <header className="px-12 py-8 flex justify-between items-center border-b border-border-main backdrop-blur-xl sticky top-0 z-20">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Merge Documents</h2>
+          <h2 className="text-2xl font-black tracking-tight">Merge Documents</h2>
           <div className="flex items-center gap-2 mt-1">
-            <div className={`w-1.5 h-1.5 rounded-full ${files.length >= 2 ? 'bg-sage-500 animate-pulse' : 'bg-slate-300'}`} />
-            <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-bold">
+            <div className={`w-1.5 h-1.5 rounded-full ${files.length >= 2 ? 'bg-brand-primary animate-pulse' : 'bg-bg-accent'}`} />
+            <p className="text-[10px] text-text-muted uppercase tracking-[0.2em] font-bold">
               {files.length} {files.length === 1 ? 'file' : 'files'} in queue
             </p>
           </div>
         </div>
         
         <div className="flex gap-4">
-          <button onClick={handlePickFiles} className="btn-sage">
+          <button onClick={handlePickFiles} className="btn-secondary">
             <Plus size={18} /> Add More
           </button>
           <AnimatePresence>
@@ -135,7 +135,7 @@ export function MergePage() {
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.8, x: 20 }}
                 onClick={handleMerge} 
-                className="btn-sage shadow-xl shadow-sage-600/20"
+                className="btn-primary shadow-xl shadow-brand-primary/20"
               >
                 <Sparkles size={18} /> Merge & Save
               </motion.button>
@@ -144,25 +144,25 @@ export function MergePage() {
         </div>
       </header>
 
-      <div className="flex-1 overflow-y-auto p-12 custom-scrollbar bg-slate-50/30 dark:bg-transparent transition-colors duration-300">
+      <div className="flex-1 overflow-y-auto p-12 custom-scrollbar transition-colors duration-300">
         <div className="max-w-6xl mx-auto h-full">
           {files.length === 0 ? (
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`dropzone h-100 transition-all duration-300 ${isDraggingOver ? 'border-sage-500 scale-[1.01]' : ''}`}
+              className={`dropzone h-100 transition-all duration-300 ${isDraggingOver ? 'border-brand-primary scale-[1.01]' : ''}`}
               onClick={handlePickFiles}
             >
-              <div className={`w-20 h-20 rounded-4xl transition-colors duration-300 flex items-center justify-center mb-8 ${isDraggingOver ? 'bg-sage-600 text-white shadow-lg' : 'bg-sage-50 dark:bg-sage-950/30 text-sage-600'}`}>
+              <div className={`w-20 h-20 rounded-4xl transition-colors duration-300 flex items-center justify-center mb-8 ${isDraggingOver ? 'bg-brand-primary text-text-inverse shadow-lg' : 'bg-bg-accent text-brand-primary'}`}>
                 <Upload size={32} className={isDraggingOver ? 'animate-bounce' : ''} />
               </div>
-              <h3 className={`text-2xl font-black mb-3 transition-colors ${isDraggingOver ? 'text-sage-600' : 'text-slate-900 dark:text-white'}`}>
+              <h3 className={`text-2xl font-black mb-3 transition-colors ${isDraggingOver ? 'text-brand-primary' : ''}`}>
                 {isDraggingOver ? 'Drop it here!' : 'Drop files here'}
               </h3>
-              <p className="text-slate-400 text-center max-w-sm leading-relaxed mb-10 font-medium">
+              <p className="text-text-muted text-center max-w-sm leading-relaxed mb-10 font-medium">
                 Combine your PDFs into one seamless document. Fast, offline, and secure.
               </p>
-              <button className={`btn-sage px-8 py-4 text-lg rounded-2xl transition-all ${isDraggingOver ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
+              <button className={`btn-primary px-8 py-4 text-lg rounded-2xl transition-all ${isDraggingOver ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
                 <FilePlus2 size={22} /> Select PDF Files
               </button>
             </motion.div>
@@ -174,7 +174,7 @@ export function MergePage() {
               onDragEnd={handleDragEnd}
               onDragCancel={() => setActiveFile(null)}
             >
-              <div className={`transition-all duration-300 rounded-4xl border-2 border-dashed ${isDraggingOver ? 'border-sage-500 scale-[1.01] p-4 -m-4' : 'border-transparent'}`}>
+              <div className={`transition-all duration-300 rounded-4xl border-2 border-dashed ${isDraggingOver ? 'border-brand-primary scale-[1.01] p-4 -m-4' : 'border-transparent'}`}>
                 <SortableContext 
                   items={files.map(f => f.id)} 
                   strategy={rectSortingStrategy}

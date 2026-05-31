@@ -20,21 +20,21 @@ function NotificationItem({ message, type }: { message: string, type: Notificati
   const configs = {
     success: {
       icon: <CheckCircle2 size={20} />,
-      bg: 'bg-white dark:bg-slate-900',
-      border: 'border-sage-500',
-      iconColor: 'text-sage-600',
+      bg: 'bg-brand-surface',
+      border: 'border-brand-primary',
+      iconColor: 'text-brand-primary',
     },
     error: {
       icon: <AlertCircle size={20} />,
-      bg: 'bg-red-50 dark:bg-red-950/20',
-      border: 'border-red-500',
-      iconColor: 'text-red-600',
+      bg: 'bg-brand-error-surface',
+      border: 'border-brand-error',
+      iconColor: 'text-brand-error',
     },
     info: {
       icon: <Info size={20} />,
-      bg: 'bg-white dark:bg-slate-900',
-      border: 'border-slate-200 dark:border-slate-700',
-      iconColor: 'text-slate-600',
+      bg: 'bg-bg-accent',
+      border: 'border-border-main',
+      iconColor: 'text-text-muted',
     },
   };
 
@@ -51,7 +51,7 @@ function NotificationItem({ message, type }: { message: string, type: Notificati
         {config.icon}
       </div>
       <div className="flex-1">
-        <p className="text-sm font-semibold text-slate-900 dark:text-white leading-tight">
+        <p className="text-sm font-semibold text-text-main leading-tight">
           {message}
         </p>
       </div>

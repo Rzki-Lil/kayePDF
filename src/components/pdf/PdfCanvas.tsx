@@ -87,8 +87,8 @@ export function PdfCanvas({ path, pageNumber, scale = 1, rotation = 0 }: Props) 
   return (
     <div className="relative flex items-center justify-center w-full h-full">
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/50 dark:bg-[#121212]/50 backdrop-blur-sm z-10">
-          <Loader2 className="animate-spin text-sage-600" size={24} />
+        <div className="absolute inset-0 flex items-center justify-center bg-bg-main/50 backdrop-blur-sm z-10">
+          <Loader2 className="animate-spin text-brand-primary" size={24} />
         </div>
       )}
       <canvas 
